@@ -141,11 +141,11 @@ footer {
  */
 
 /* Zone d'options */
-.optionSource {
+.option_source {
     margin: 20px;
 }
 
-.optionSource input[type='radio']:not(:first-child) {
+.option_source input[type='radio']:not(:first-child) {
     margin-left: 20px;
 }
 
