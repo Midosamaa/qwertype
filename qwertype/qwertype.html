@@ -8,9 +8,10 @@
     <!-- Inclusion du fichier css pour le style du jeu -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Inclusion des 3 scripts nécessaires pour faire fonctionner le jeu -->
-    <!-- Attention, l'ordre des fichiers js est important.  -->
+    <!-- includeing the necessary scripts -->
+    <!-- their order is crucial to the functionning of the project -->
     <script src="config.js" defer></script>
+    <script src="popup.js" defer></script> 
     <script src="qwertype.js" defer></script>
     <script src="main.js" defer></script>
 </head>
@@ -23,7 +24,8 @@
     <footer>
         @Copyright : Openclassrooms. 
     </footer>
-</body>        <!-- HEADER -->
+</body>   
+<!-- HEADER -->
 <header>
     <h1>QwerType</h1>
     <h2>The app that makes you Type faster!</h2>
@@ -58,4 +60,29 @@
     <div class="score_zone">
         Your score : <span>0</span>
     </div>
+
+    <div class="share_zone">
+        <button>Share</button>
+    </div>
+    
+</main>
+
+<!-- FOOTER -->
+<footer>
+    @Copyright : Openclassrooms. 
+</footer>
+
+<!-- Share popup -->
+<div class="popup_background">
+    <div class="popup">
+        <div>Share your score</div>
+        <form>
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+            <label for="email">Who do you wanna share this with?</label>
+            <input type="email" id="email" name="email" placeholder="name@domaine.com">
+            <button id="send_mail_btn">Send</button>
+        </form>
+    </div>
+</div> 
 </html>

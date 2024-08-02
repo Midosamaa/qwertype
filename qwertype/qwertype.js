@@ -22,6 +22,30 @@ function option_choice() {
     return selectedOption;
 }
 
+// To send an email
+function disp_email(name, email, score) {
+    let mailto = `mailto:${email}?subject=Sharing QwerType score&body=Hello, this is ${name}. I just got this amazing score ${score} on QwerType!`
+    location.href = mailto
+}
+
+function share_score(){
+    const form=document.querySelector("form")
+
+    form.addEventListener("submit", (event) => {
+        // to prevent the default behavior
+        event.preventDefault();
+        console.log("Il n’y a pas eu de rechargement de page");
+    
+        // to get the the parameters
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const score = document.querySelector(".score_zone span").textContent
+        console.log(name);
+        console.log(email);
+        disp_email(name, email, score);
+    });
+}
+
 // To get the suggestion list based on the option
 function option_list(option) {
     let suggestion_list = [];
