@@ -1,16 +1,57 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="config.js"></script>
-    <script src="qwertype.js"></script>
-    <script src="main.js"></script>
+    <!-- Inclusion du fichier css pour le style du jeu -->
+    <link rel="stylesheet" href="style.css">
 
+    <!-- Inclusion des 3 scripts nécessaires pour faire fonctionner le jeu -->
+    <!-- Attention, l'ordre des fichiers js est important.  -->
+    <script src="config.js" defer></script>
+    <script src="qwertype.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
 
-</body>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        @Copyright : Openclassrooms. 
+    </footer>
+</body>        <!-- HEADER -->
+<header>
+    <h1>QwerType</h1>
+    <h2>The app that makes you Type faster!</h2>
+    <h3>QwerType is an online app that will help you type faster on your keyboard :)</h3>
+</header>
+
+<!-- MAIN -->
+<main>
+    <div class="options_zone">
+        <p>Choose your option and then type the proposition in the field down below.</p>
+        <div class="optionSource">
+            <input type="radio" name="optionSource" id="words" value="1" checked>
+            <label for="words">Words</label>
+            <input type="radio" name="optionSource" id="sentences" value="2">
+            <label for="sentences">Sentences</label>
+        </div>
+    </div>
+
+    <div class="suggestion_zone">
+        Qwerty
+    </div>
+
+    <div class="typing_zone">
+        <input type="text" id="writing_input" name="writing_input">
+        <button id="submit_btn">Submit</button>
+    </div>
+
+    <div class="score_zone">
+        Your score : <span>0</span>
+    </div>
 </html>
