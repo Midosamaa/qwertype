@@ -40,10 +40,25 @@ function share_score(){
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const score = document.querySelector(".score_zone span").textContent
-        console.log(name);
-        console.log(email);
-        disp_email(name, email, score);
+        
+        if(approve_email(email) && approve_name(name)){
+            disp_email(name, email, score);
+        }
+        else console.log("error")
     });
+}
+
+//To verify the name field
+function approve_name(name){
+    if(name.length>2) return true;
+    else return false
+}
+
+//To verify the email field
+function approve_email(email){
+    let regex=new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]")
+    if (regex.test(email)) return true
+    else return false
 }
 
 // To get the suggestion list based on the option
