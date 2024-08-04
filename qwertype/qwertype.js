@@ -28,37 +28,49 @@ function disp_email(name, email, score) {
     location.href = mailto
 }
 
+//To manage sharing the score
 function share_score(){
     const form=document.querySelector("form")
 
     form.addEventListener("submit", (event) => {
         // to prevent the default behavior
         event.preventDefault();
-        console.log("Il n’y a pas eu de rechargement de page");
     
         // to get the the parameters
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const score = document.querySelector(".score_zone span").textContent
-        
-        if(approve_email(email) && approve_name(name)){
+        try{
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const score = document.querySelector(".score_zone span").textContent
+
+            // Validate the inputs
+            approve_name(name);
+            approve_email(email);
+
+            disp_error_message("")
+
             disp_email(name, email, score);
         }
-        else console.log("error")
+        catch(error){
+            disp_error_message(error.message)
+        }
     });
+}
+
+//to show error message
+function disp_error_message(error_message){
+    let span = document.querySelector(".popup span");
+    span.textContent = error_message; // Set the text content directly
 }
 
 //To verify the name field
 function approve_name(name){
-    if(name.length>2) return true;
-    else return false
+    if(name.length<2) throw new Error("name is too short.");
 }
 
 //To verify the email field
 function approve_email(email){
     let regex=new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]")
-    if (regex.test(email)) return true
-    else return false
+    if (!(regex.test(email))) throw new Error("email is wrong.")
 }
 
 // To get the suggestion list based on the option
@@ -118,6 +130,4 @@ function launch_game() {
         typing_tag.value = ""; // Clear input field after each submission
     });
 }
-
-
 
